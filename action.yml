@@ -18,6 +18,16 @@ runs:
         toolchain: stable
         override: true
 
-    - name: Build and run Rust CLI
+    - name: Build Rust binary
       shell: bash
-      run: ./run.sh "${{ inputs.github_issue_title }}" "${{ inputs.github_issue_body }}"
+      run: |
+        cd ${{ github.action_path }}
+        echo "🔧 Building Rust binary"
+        cargo build --release
+
+    - name: Run Rust CLI
+      shell: bash
+      run: |
+        cd ${{ github.action_path }}
+        echo "🚀 Running CLI"
+        ./target/release/jira-sync-action "${{ inputs.github_issue_title }}" "${{ inputs.github_issue_body }}"
