@@ -8,9 +8,15 @@ fn main() -> Result<()> {
     let title = env::var("ISSUE_TITLE")??;
     let body = env::var("ISSUE_BODY")?;
 
+    // let title = String::from("test title");
+    // let body = String::from("test로 만든 issue");
+
     let jira_url = format!("https://{}.atlassian.net/", env::var("JIRA_ORG_NAME")?);
+    // let org_name = String::from("uheejoon");
+    // let jira_url = format!("https://{}.atlassian.net/", org_name);
 
     let project_key = env::var("JIRA_PROJECT_KEY")?;
+    // let project_key = String::from("SCRUM");
 
     let email = env::var("JIRA_EMAIL")?;
 
