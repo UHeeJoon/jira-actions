@@ -5,7 +5,7 @@ use reqwest::blocking::Client;
 use serde_json::json;
 
 fn main() -> Result<()> {
-    let title = env::var("ISSUE_TITLE")??;
+    let title = env::var("ISSUE_TITLE")?;
     let body = env::var("ISSUE_BODY")?;
 
     // let title = String::from("test title");
