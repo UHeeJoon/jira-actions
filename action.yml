@@ -20,4 +20,4 @@ runs:
 
     - name: Build and run Rust CLI
       shell: bash
-      run: ./run.sh "${{ inputs.github_issue_title }}" "${{ inputs.github_issue_body }}"
+      run: run.sh "${{ inputs.github_issue_title }}" "${{ inputs.github_issue_body }}"
