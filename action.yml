@@ -1,0 +1,12 @@
+name: "Rust Jira Sync"
+description: "Run a Rust CLI tool that creates a Jira issue"
+runs:
+  using: "composite"
+  steps:
+    - name: Build the Rust CLI
+      shell: bash
+      run: cargo build --release
+
+    - name: Run the binary with arguments
+      shell: bash
+      run: cargo run
