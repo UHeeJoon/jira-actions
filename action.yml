@@ -1,28 +1,21 @@
-name: "Rust Jira Action"
-description: "Create Jira issue from GitHub issue"
-
-inputs:
-  github_issue_title:
-    required: true
-  github_issue_body:
-    required: false
-
+name: "Rust Jira Sync"
+description: "Run a Rust CLI tool that creates a Jira issue"
 runs:
   using: "composite"
   steps:
-    - name: Checkout this repo (jira-actions)
+    - name: Checkout self
       uses: actions/checkout@v4
 
-    - name: Setup Rust
+    - name: Install Rust
       uses: actions-rs/toolchain@v1
       with:
         toolchain: stable
         override: true
 
-    - name: Build Rust CLI
+    - name: Build the Rust CLI
       shell: bash
       run: cargo build --release
 
-    - name: Run CLI
+    - name: Run the binary with arguments
       shell: bash
-      run: ./target/release/jira-sync-action "${{ inputs.github_issue_title }}" "${{ inputs.github_issue_body }}"
+      run: cargo run
