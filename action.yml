@@ -30,4 +30,4 @@ runs:
       run: |
         cd ${{ github.action_path }}
         echo "🚀 Running CLI"
-        ./target/release/jira-sync-action"
+        ./target/release/jira-sync-action
